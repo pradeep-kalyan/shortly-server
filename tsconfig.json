@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "nodenext",
+    "outDir": "./dist",
+    "rootDir": ".",
+    "target": "ES6",
+    "strict": true,
+    "module": "NodeNext",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": ["/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
