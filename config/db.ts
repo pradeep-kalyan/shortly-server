@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-const uri: string =
-  "mongodb+srv://pradeepkalyan1275:9UbiSCOfshlKQipb@urls.lqvnpc0.mongodb.net/shortly?retryWrites=true&w=majority&appName=urls";
+const uri: any = process.env.DB_URL;
 
 const connectDB = async (): Promise<void> => {
   try {
