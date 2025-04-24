@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import connectDB from "./config/db";
 import router from "./routes/Shortner";
+import cors from "cors";
 
 const app = express();
 
@@ -20,7 +21,7 @@ connectDB()
   .catch((err: Error) => console.error("DB connection error", err));
 
 app.use(express.json());
-
+app.use(cors.origin("locahlhost:5173"));
 
 app.use("/", router);
 
