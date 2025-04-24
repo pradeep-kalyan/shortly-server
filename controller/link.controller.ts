@@ -22,16 +22,15 @@ export const urlgenerator = async (req: any, res: any) => {
       return res.status(400).json({ message: "Original URL is required." });
     }
 
-    const existing: any = await Link.findOne({ org_url });
+    const existing = await Link.findOne({ org_url });
     if (existing) {
       return res.status(200).json({ short_url: existing.short_url });
     }
 
     const short_url = generateShortUrl();
-    const snip = `https://sniply.up.railway.app/r/${short_url}`;
-    await Link.create({ org_url, short_url: snip });
+    await Link.create({ org_url, short_url });
 
-    return res.status(200).json({ short_url: existing.short_url });
+    return short_url;
   } catch (error) {
     return res.status(500).json({ message: "Server error", error });
   }
