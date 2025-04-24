@@ -30,7 +30,8 @@ export const urlgenerator = async (req: any, res: any) => {
     }
 
     const short_url = generateShortUrl();
-    await Link.create({ org_url, short_url });
+    const snip = `https://sniply.up.railway.app/r/${short_url}`;
+    await Link.create({ org_url, snip });
 
     return res.status(200).json({
       message: `Short URL created successfully. Access: https://sniply.up.railway.app/r/${short_url}`,
