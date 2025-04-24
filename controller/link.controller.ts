@@ -25,7 +25,7 @@ export const urlgenerator = async (req: any, res: any) => {
     const existing = await Link.findOne({ org_url });
     if (existing) {
       return res.status(200).json({
-        message: `URL already shortened: https://shortly/${existing.short_url}`,
+        message: `URL already shortened: https://sniply.up.railway.app/${existing.short_url}`,
       });
     }
 
@@ -33,7 +33,7 @@ export const urlgenerator = async (req: any, res: any) => {
     await Link.create({ org_url, short_url });
 
     return res.status(200).json({
-      message: `Short URL created successfully. Access: https://shortly/${short_url}`,
+      message: `Short URL created successfully. Access: https://sniply.up.railway.app/r/${short_url}`,
     });
   } catch (error) {
     return res.status(500).json({ message: "Server error", error });

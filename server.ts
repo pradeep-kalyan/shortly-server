@@ -21,11 +21,8 @@ connectDB()
 
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("API is running...");
-});
 
-app.use("/shortly", router);
+app.use("/", router);
 
 // Error middleware should be last
 app.use(ErrorHandler);
